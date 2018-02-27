@@ -1,0 +1,9 @@
+Las 10 tiendas online más utilizadas. (algunas tienen apis otras no) 
+https://www.shopify.com/blog/7068398-10-best-comparison-shopping-engines-to-increase-ecommerce-sales
+shopzilla tiene api
+google shopping tiene api
+amazon shopping ads tiene api pero está preparado para anunciar productos en función de palabras clave
+
+
+Buscador de apis
+https://www.programmableweb.com/category/all/apis
