@@ -1,0 +1,45 @@
+
+GASTOS DE PERSONAL
+	Coste de personal mensual 2000 euros netos 
+
+	Coste total de personal 40000 euros
+
+
+GASTOS DE EQUIPOS INFORMÁTICOS (in house)
+	Gastos equipos fijos 120 euros
+	Gastos equipos portátiles 80 euros
+	
+	Total gasto en equipos informáticos 200 euros
+	
+	
+GASTOS EN MATERIAL FUNGIBLES 
+	Gastos varios 40
+
+GASTOS DE INSTALACIONES Y LIMPIEZA
+	Gasto mensual instalación 300 euros
+	Gasto eléctrico 50 euros
+	Gasto en Internet/teléfono 50 euros
+	Gasto en limpieza 50 euros
+	
+	Total precio de instalaciones y limpieza 450 x 4 = 1800 euros
+	
+	
+GASTOS COMPLEMENTARIOS
+Desglose de Gasto de Viaje
+	Traslado Granada-Madrid 100 euros por persona y viaje.
+	Estancia en Madrid 2 días 400 euros
+	
+	Total de viajes a lo largo del proyecto 1000 euros
+	
+Desglose campaña publicitaria
+	Publicidad en Google Adwords 400 euros
+	Publicidad por redes sociales gratuito
+	
+	Total de campaña publicitaria 400 euros
+	
+Desglose de precios de cursos
+	Curso de Web scrapping 127 euros
+	
+	Total de precios de cursos 127 euros
+	
+COSTE FINAL DEL PROYECTO 43567 euros + IVA 21%
