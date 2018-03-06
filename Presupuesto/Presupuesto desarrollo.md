@@ -1,4 +1,4 @@
-# COMPUTERCOMPONENTSCOMPARATOR: PRESUPUESTO DE DESARROLLO
+# COMPUTER COMPONENTS COMPARATOR: PRESUPUESTO DE DESARROLLO
 
 ## Luis Balderas Ruiz, Miguel Ángel Torres López
 
@@ -7,15 +7,19 @@
 
 - Coste total de personal 40000€
 
+**Total gasto en personal** 40000€
 
 ###GASTOS DE EQUIPOS INFORMÁTICOS
 - Gastos equipos fijos 120€
 - Gastos equipos portátiles 80€	
-- Total gasto en equipos informáticos 200€
+
+**Total gasto en equipos informáticos** 200€
 	
 	
 ###GASTOS EN MATERIAL FUNGIBLES 
 - Gastos varios 40€
+
+**Total gasto en material fungible** 40€
 
 ###GASTOS DE INSTALACIONES Y LIMPIEZA
 - Gasto mensual instalación 300€
@@ -28,8 +32,8 @@
 	
 ###GASTOS COMPLEMENTARIOS
 ####Desglose de Gasto de Viaje
-- Traslado Granada-Madrid 100 euros por persona y viaje.
-- Estancia en Madrid 2 días 400 euros
+- Traslado Granada-Madrid 100€/persona y viaje.
+- Estancia en Madrid 2 días 400€
 	
 	**Total de viajes a lo largo del proyecto** 1000€
 	
