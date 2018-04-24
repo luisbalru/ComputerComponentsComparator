@@ -23,7 +23,7 @@ public class HelloAppEngine extends HttpServlet {
     response.setContentType("text/plain");
     response.setCharacterEncoding("UTF-8");
 
-    response.getWriter().print(scrap.getNPages("ram"));
+    response.getWriter().print(scrap.getNPages(request.getParameter("busqueda")));
 
   }
 }
