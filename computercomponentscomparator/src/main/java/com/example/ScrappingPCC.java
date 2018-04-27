@@ -34,7 +34,7 @@ public class ScrappingPCC {
 		while((nuevo = SendHTTP("https://www.pccomponentes.com/buscar/ajax", "POST", true, i, request)) != "" ) {
 			res+=nuevo;
 			i++;
-			if(i>10)break;
+			if(i>5)break;
 		}
 		
 		return nuevo;
