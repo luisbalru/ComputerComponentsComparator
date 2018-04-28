@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloAppEngine extends HttpServlet {
 
 	public ScrappingPCC scrapPCC = new ScrappingPCC();
-	public ScrappingGS scrapGS = new ScrappingGS();
+	//public ScrappingGS scrapGS = new ScrappingGS();
 	
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -26,10 +26,10 @@ public class HelloAppEngine extends HttpServlet {
 
     
     // BUSQUEDA EN PCCOMPONENTES
-    //response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
+    response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
     
     // BUSQUEDA EN GOOGLE SHOPPING
-    response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
+    //response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
     
   }
 }
