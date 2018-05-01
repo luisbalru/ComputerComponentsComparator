@@ -2,6 +2,8 @@ package com.example;
 
 
 import java.io.BufferedReader;
+import java.io.IOException;
+
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -34,9 +36,10 @@ public class IntegracionDatos {
 	 * @param html_gs String resultado del scrapping en Google Shopping
 	 * @param num_prod Entero que indica el número de productos a almacenar
 	 */
-	public IntegracionDatos(String html_pcc, String html_gs, int num_prod) {
+	public IntegracionDatos(String html_pcc, int num_prod) {
 		doc_pcc = Jsoup.parse(html_pcc);
-		doc_gs = Jsoup.parse(html_gs);
+		//doc_gs = Jsoup.parse(html_gs);
+		links_pcc = doc_pcc.select("h3 > a#data-name");
 		// Amazon
 		for(int i=0; i<num_prod; ++i) {
 			Producto prod = new Producto();
@@ -44,6 +47,11 @@ public class IntegracionDatos {
 			procesarDatosGS(prod);
 			// Amazon
 		}
+	}
+	
+	public Elements getLinks()
+	{
+		return links_pcc;
 	}
 	
 	/**
