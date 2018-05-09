@@ -168,7 +168,9 @@ hr{
 
 
  input[type=text] {
-    width: 130px;
+    width: 50%;
+    height: 3vw;
+    font-size: 22px;
     border: 0px;
     background-color: #e1e6ef;
     -webkit-transition: width 0.4s ease-in-out;
@@ -182,4 +184,57 @@ input[type=text]:focus {
     border-bottom: 3px solid #9bbcf2;
     border-left: 3px solid #9bbcf2;
 	border-bottom-left-radius: 10px;
+}
+
+
+
+.vertical {
+    list-style-type: none;
+	display:inline-block;
+    margin: 0;
+	margin-top: 7%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.vertical > li {
+    float: left;
+	display: block;
+	width: 95%;
+	margin-top: 0.1vw;
+	margin-left: 2%;
+	margin-right: 5%;
+}
+
+.vertical > li a {
+    color: black;
+    text-align: center;
+    padding: 1.3vw;
+    text-decoration: none;
+	font-family: 'Architects Daughter';
+	font-size: 1.6vw;
+}
+
+.vertical > li:hover {
+    background-color: #bee8e8;
+}
+
+.unbox{
+	border: 2px solid #bee8e8;
+	border-left: none;
+	border-radius: 10px;
+	margin-left:0;
+}
+
+.articulo{
+	border: 2px solid #bee8e8;
+}
+
+.articulo > h4{
+	font-size: 15px;
+	text-align: center;
+}
+
+.articulo > h5{
+	font-size: 10px;	
 }
