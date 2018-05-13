@@ -1,7 +1,7 @@
 package com.example;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +21,7 @@ import org.jsoup.select.Elements;
 public class HelloAppEngine extends HttpServlet {
 	
 	public ScrappingPCC scrapPCC = new ScrappingPCC();
-	//public ScrappingGS scrapGS = new ScrappingGS();
+	public ScrappingGS scrapGS = new ScrappingGS();
 	
 	
   @Override
@@ -35,15 +35,13 @@ public class HelloAppEngine extends HttpServlet {
     // BUSQUEDA EN PCCOMPONENTES
     //response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
     
-    IntegracionDatos intDatos = new IntegracionDatos(scrapPCC.getNPages(request.getParameter("busqueda")),120);
-    Elements l = intDatos.getLinks();
-    for(Element a : l)
-    {
-    	response.getWriter().print(a);
-    }
+    ArrayList<Producto> productos = new ArrayList<Producto>();
+    IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.getNPages(request.getParameter("busqueda")),120);
+    
+    
     
     // BUSQUEDA EN GOOGLE SHOPPING
-    //response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
+    response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
     
   }
 }
