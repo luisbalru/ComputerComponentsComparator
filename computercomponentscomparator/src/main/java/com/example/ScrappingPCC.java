@@ -17,7 +17,6 @@ public class ScrappingPCC {
 
 	private List<String> cookies;
 	private String firstquery  = "https://www.pccomponentes.com/buscar/?query=";
-	private String secondquery = "&or-search";
 	
 	public String getNPages(String request) { //request, just one word allowed at the moment
 		
@@ -27,12 +26,12 @@ public class ScrappingPCC {
 		
 		SendHTTP(firstquery + request, "GET", true, 0, request);
 		while((nuevo = SendHTTP("https://www.pccomponentes.com/buscar/ajax", "POST", true, i, request)) != "" ) {
-			res+=nuevo;
+			res+=nuevo+"\n";
 			i++;
 			if(i>5)break;
 		}
-		
-		return nuevo;
+
+		return res;
 	}
 	
 	
@@ -85,7 +84,6 @@ public class ScrappingPCC {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return res;
 	}
 }
