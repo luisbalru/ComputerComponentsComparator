@@ -13,12 +13,18 @@ import java.util.List;
 
 
 
-public class ScrappingPCC {
+public class ScrappingPCC implements FuenteDato{
 
 	private List<String> cookies;
 	private String firstquery  = "https://www.pccomponentes.com/buscar/?query=";
 	
-	public String getNPages(String request) { //request, just one word allowed at the moment
+	
+	public String query(String request)
+	{
+		return getNPages(request);
+	}
+	
+	private String getNPages(String request) { //request, just one word allowed at the moment
 		
 		String res = "";
 		String nuevo;
