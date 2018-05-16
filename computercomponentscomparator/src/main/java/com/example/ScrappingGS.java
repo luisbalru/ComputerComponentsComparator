@@ -1,4 +1,4 @@
-package com.example;
+/*package com.example;
 
 import java.io.BufferedReader;
 
@@ -37,6 +37,7 @@ public class ScrappingGS {
 		try {
 			while((line = buffer.readLine()) != null) {
 				read += line;
+				System.out.println(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -68,4 +69,4 @@ public class ScrappingGS {
 
 		return res;
 	}
-}
+}*/

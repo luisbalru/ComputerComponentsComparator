@@ -21,7 +21,7 @@ import org.jsoup.select.Elements;
 public class HelloAppEngine extends HttpServlet {
 	
 	public ScrappingPCC scrapPCC = new ScrappingPCC();
-	public ScrappingGS scrapGS = new ScrappingGS();
+	//En desuso    public ScrappingGS scrapGS = new ScrappingGS();
 	
 	
   @Override
@@ -33,7 +33,7 @@ public class HelloAppEngine extends HttpServlet {
 
     
     // BUSQUEDA EN PCCOMPONENTES
-    response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
+    //response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
     
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.getNPages(request.getParameter("busqueda")),120);

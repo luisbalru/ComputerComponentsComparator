@@ -24,18 +24,13 @@ public class ScrappingPCC implements FuenteDato{
 		return getNPages(request);
 	}
 	
-	private String getNPages(String request) { //request, just one word allowed at the moment
+	public String getNPages(String request) { //request, just one word allowed at the moment
 		
 		String res = "";
 		String nuevo;
 		int i = 1;
 		
 		nuevo = SendHTTP(firstquery + request, "GET", true, 0, request);
-		System.out.println("hecho\n");
-		/// PARA QUITAR LOS SCRIPTS DEL FINAL (solo primera peticion)
-		//	res+=nuevo.split("\n", 1)[0];
-
-		System.out.println("hecho\n");
 		
 		while((nuevo = SendHTTP("https://www.pccomponentes.com/buscar/ajax", "POST", true, i, request)) != "" ) {
 			res+=nuevo+"\n";
