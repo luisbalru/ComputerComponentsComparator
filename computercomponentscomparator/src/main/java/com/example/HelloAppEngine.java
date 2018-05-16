@@ -33,7 +33,7 @@ public class HelloAppEngine extends HttpServlet {
 
     
     // BUSQUEDA EN PCCOMPONENTES
-    //response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
+    response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
     
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.getNPages(request.getParameter("busqueda")),120);
@@ -41,7 +41,7 @@ public class HelloAppEngine extends HttpServlet {
     
     
     // BUSQUEDA EN GOOGLE SHOPPING
-    response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
+    //response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
     
   }
 }

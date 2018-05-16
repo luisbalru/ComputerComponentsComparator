@@ -24,11 +24,17 @@ public class ScrappingPCC {
 		String nuevo;
 		int i = 1;
 		
-		SendHTTP(firstquery + request, "GET", true, 0, request);
+		nuevo = SendHTTP(firstquery + request, "GET", true, 0, request);
+		System.out.println("hecho\n");
+		/// PARA QUITAR LOS SCRIPTS DEL FINAL (solo primera peticion)
+		//	res+=nuevo.split("\n", 1)[0];
+
+		System.out.println("hecho\n");
+		
 		while((nuevo = SendHTTP("https://www.pccomponentes.com/buscar/ajax", "POST", true, i, request)) != "" ) {
 			res+=nuevo+"\n";
 			i++;
-			if(i>5)break;
+			if(i>4)break;
 		}
 
 		return res;
