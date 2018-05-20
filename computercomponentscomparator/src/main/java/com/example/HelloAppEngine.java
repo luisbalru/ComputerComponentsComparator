@@ -38,8 +38,6 @@ public class HelloAppEngine extends HttpServlet {
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.getNPages(request.getParameter("busqueda")),120);
     
-    
-    
     // BUSQUEDA EN GOOGLE SHOPPING
     //response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
     

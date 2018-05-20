@@ -22,6 +22,7 @@ public class CCC extends HttpServlet {
 	
 	public FuenteDato scrapPCC = new ScrappingPCC();
 	//public FuenteDato scrapGS = new ScrappingGS();
+	public FuenteDato ebayasker = new EbayAsker();
 	
 	
   @Override
@@ -38,6 +39,7 @@ public class CCC extends HttpServlet {
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
     
+    response.getWriter().print(ebayasker.query(request.getParameter("busqueda")));
     
     
     // BUSQUEDA EN GOOGLE SHOPPING
