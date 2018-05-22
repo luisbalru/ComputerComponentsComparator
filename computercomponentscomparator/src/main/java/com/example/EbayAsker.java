@@ -36,7 +36,12 @@ public class EbayAsker implements FuenteDato{
 	}
 	public String getItem(String request)
 	{
-		String url = "https://api.sandbox.ebay.com/buy/browse/v1/item_summary/search?q=" + request + "&limit=5";
+		String url = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords"
+			   + "SERVICE-VERSION=1.0.0"
+			   + "SECURITY-APPNAME=MiguelTo-Computer-SBX-667ac8c8b-b35bfbfe"
+			   + "RESPONSE-DATA-FORMAT=XML"
+			   + "REST-PAYLOAD"
+			   + "keywords=harry%20potter%20phoenix";
 		HttpURLConnection connection;
 		BufferedReader response;
 		String res = "";
