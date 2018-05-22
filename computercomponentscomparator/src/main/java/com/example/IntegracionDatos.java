@@ -41,7 +41,7 @@ public class IntegracionDatos {
    * 
    * @param html_pcc String resultado del scrapping en PCComponentes
    * @param html_gs String resultado del scrapping en Google Shopping
-   * @param num_prod Entero que indica el número de productos a almacenar
+   * @param num_prod Entero que indica el número de productos a buscar (cuando sea necesario)
    */
   public IntegracionDatos(ArrayList<Producto> productos, String html_pcc, int num_prod) {
     doc_pcc = Jsoup.parse(html_pcc);

@@ -39,8 +39,10 @@ public class CCC extends HttpServlet {
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
     
-    response.getWriter().print(ebayasker.query(request.getParameter("busqueda")));
-    
+    //response.getWriter().print(ebayasker.query(request.getParameter("busqueda")));
+    AmazonAPI amazon = new AmazonAPI();
+    String salida_amazon = amazon.queryAmazon("cpu");
+    response.getWriter().print(salida_amazon);
     
     // BUSQUEDA EN GOOGLE SHOPPING
     //response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
