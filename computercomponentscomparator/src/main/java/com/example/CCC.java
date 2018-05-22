@@ -34,7 +34,7 @@ public class CCC extends HttpServlet {
 
     
     // BUSQUEDA EN PCCOMPONENTES
-    //response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda")));
+    //response.getWriter().print(scrapPCC.getNPages(request.getParameter("busqueda"))); eeeeeeeeeeeeeeeeh
     
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
