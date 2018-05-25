@@ -24,7 +24,18 @@ public class ScrappingPCC implements FuenteDato{
 		return getNPages(request);
 	}
 	
-	public String getNPages(String request) { //request, just one word allowed at the moment
+	public String getNPages(String request) { 
+		
+		//////////////////////////////////////// Search has better results with just the 3 first words ////////
+		String words[] = request.split(" ");
+		if(words.length > 1) {
+			words[0] += "+" + words[1];
+			if(words.length > 2) {
+				words[0] += "+" + words[2];
+			}
+		}
+		request = words[0];
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		String res = "";
 		String nuevo;

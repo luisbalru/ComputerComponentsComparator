@@ -21,9 +21,8 @@ import org.jsoup.select.Elements;
 public class CCC extends HttpServlet {
 	
 	public FuenteDato scrapPCC = new ScrappingPCC();
-	//public FuenteDato scrapGS = new ScrappingGS();
-	public FuenteDato ebayasker = new EbayAsker();
-	
+	public FuenteDato scrapWorten = new ScrappingWorten();
+	public AmazonAPI amazon = new AmazonAPI();
 	
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -39,13 +38,11 @@ public class CCC extends HttpServlet {
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
     
-    //response.getWriter().print(ebayasker.query(request.getParameter("busqueda")));
-    AmazonAPI amazon = new AmazonAPI();
     String salida_amazon = amazon.queryAmazon("cpu");
     response.getWriter().print(salida_amazon);
     
-    // BUSQUEDA EN GOOGLE SHOPPING
-    //response.getWriter().print(scrapGS.getPage(request.getParameter("busqueda")));
+    // BUSQUEDA EN WORTEN
+    response.getWriter().print(scrapWorten.query(request.getParameter("busqueda")));
     
   }
 }
