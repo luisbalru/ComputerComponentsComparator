@@ -104,8 +104,13 @@ public class Producto{
 	  oferta.setMarket(market);
 	  oferta.setId(datos.get(0));
 	  oferta.setEnlace(datos.get(1));
-	  oferta.setPrecio(datos.get(2));
+	  oferta.setPrecio(ajustarPrecioAmazon(datos.get(2)));
 	  ofertas.add(oferta);
+  }
+  
+  private String ajustarPrecioAmazon(String precio)
+  {
+	  return precio.substring(4);
   }
   
 }
