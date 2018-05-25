@@ -22,11 +22,8 @@ import org.jsoup.select.Elements;
 
 public class IntegracionDatos {
   private Document doc_pcc;
-  private Document doc_gs;
   private Elements name_pcc;
   private Elements prices_pcc;
-  private Elements links_gs;
-  private Elements prices_gs;
   private Elements imgs;
   private Elements category;
   private Elements brands;
@@ -55,12 +52,7 @@ public class IntegracionDatos {
     procesarDatosPCC(productos,num_prod);
 
   }
-  
-  public void integraDatosGS(ArrayList<Producto> productos, String html_gs, int num_prod)
-  {
-	  doc_gs = Jsoup.parse(html_gs);
-	  procesarDatosGS(productos,num_prod);
-  }
+
   
   public Elements getName()
   {
@@ -179,10 +171,6 @@ public class IntegracionDatos {
 			aux.setOfertas(ofertas);
 			prods.add(aux);
 		} 
-  }
-  
-  private void procesarDatosGS(ArrayList<Producto> prods, int num_prod) {
-    
   }
   
 }

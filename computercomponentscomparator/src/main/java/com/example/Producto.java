@@ -8,7 +8,6 @@ public class Producto{
   private String marca;
   private String img;
   private String descripcion;
-  private String ean;
   private ArrayList<Oferta> ofertas;
   
   /**
@@ -100,13 +99,13 @@ public class Producto{
 	this.ofertas = ofertas;
   }
 
-public String getEan() {
-	return ean;
-}
-
-public void setEan(String ean) {
-	this.ean = ean;
-}
-  
+  public void addOferta(ArrayList<String> datos, String market) {
+	  Oferta oferta = new Oferta();
+	  oferta.setMarket(market);
+	  oferta.setId(datos.get(0));
+	  oferta.setEnlace(datos.get(1));
+	  oferta.setPrecio(datos.get(2));
+	  ofertas.add(oferta);
+  }
   
 }
