@@ -23,7 +23,7 @@ import org.w3c.dom.Node;
  * See the README.html that came with this sample for instructions on
  * configuring and running the sample.
  */
-public class AmazonAPI {
+public class AmazonAPI implements FuenteDato{
 
     /*
      * Your Access Key ID, as taken from the Your Account page.
@@ -82,7 +82,7 @@ public class AmazonAPI {
 	}
     
     
-    public String queryAmazon(String query) {
+    private String queryAmazon(String query) {
 
         /*
          * Set up the signed requests helper.
@@ -114,6 +114,11 @@ public class AmazonAPI {
         
         
         return SendHTTP(requestUrl);
+    }
+    
+    public String query(String query)
+    {
+    	return queryAmazon(query);
     }
 }
 

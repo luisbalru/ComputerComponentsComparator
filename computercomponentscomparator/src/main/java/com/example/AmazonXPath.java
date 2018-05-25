@@ -21,7 +21,7 @@ public class AmazonXPath {
 	
 	public AmazonXPath(String query) {
 		AmazonAPI amazon = new AmazonAPI();
-	    salida_amazon = amazon.queryAmazon(query);
+	    salida_amazon = amazon.query(query);
 	}
 	
 	public ArrayList<String> getInformacion() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException
