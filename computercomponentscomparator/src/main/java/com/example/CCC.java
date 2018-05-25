@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.jsoup.Jsoup;
-import org.jsoup.helper.Validate;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+
 import org.xml.sax.SAXException;
 
 @WebServlet(
