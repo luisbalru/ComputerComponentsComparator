@@ -24,9 +24,14 @@ import org.xml.sax.SAXException;
 public class CCC extends HttpServlet {
 	
 	public FuenteDato scrapPCC = new ScrappingPCC();
+<<<<<<< HEAD
 	//public FuenteDato scrapGS = new ScrappingGS();
 	//public FuenteDato ebayasker = new EbayAsker();
 	
+=======
+	public FuenteDato scrapWorten = new ScrappingWorten();
+	public AmazonAPI amazon = new AmazonAPI();
+>>>>>>> refs/remotes/origin/master
 	
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -42,6 +47,7 @@ public class CCC extends HttpServlet {
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
     AmazonXPath amazon;
     
+<<<<<<< HEAD
     for(int i=0; i<productos.size(); i++) {
 	    amazon = new AmazonXPath(productos.get(i).getNombre());
 	    try {
@@ -58,12 +64,21 @@ public class CCC extends HttpServlet {
 		}
 	    productos.get(i).addOferta(salida_amazon, "Amazon");
     }
+=======
+    String salida_amazon = amazon.queryAmazon("cpu");
+    response.getWriter().print(salida_amazon);
+>>>>>>> refs/remotes/origin/master
     
+<<<<<<< HEAD
     /*AmazonAPI amazon = new AmazonAPI();
     String salida_amazon = amazon.queryAmazon(request.getParameter("busqueda"));
     response.getWriter().print(salida_amazon);*/
     
     
+=======
+    // BUSQUEDA EN WORTEN
+    response.getWriter().print(scrapWorten.query(request.getParameter("busqueda")));
+>>>>>>> refs/remotes/origin/master
     
   }
 }
