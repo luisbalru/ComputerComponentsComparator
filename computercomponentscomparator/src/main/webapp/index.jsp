@@ -32,7 +32,7 @@
 	<!------------------- Cuerpo central de la página ---------------->
 	<section class="row">
 		<section class="col-10 offset-1">
-		    <form action="index.jsp" method="get"> 
+		    <form action="ccc" method="get"> 
 		   		<section class="col-1 logo">
 					<img src="img/lupa.png" alt="Searcher" />
 				</section>

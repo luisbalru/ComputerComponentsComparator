@@ -39,6 +39,7 @@ public class ScrappingCU implements FuenteDato{
 		try {
 			while((line = buffer.readLine()) != null) {
 				read += line;
+				//System.out.println(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

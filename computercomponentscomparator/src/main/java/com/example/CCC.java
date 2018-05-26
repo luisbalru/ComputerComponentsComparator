@@ -40,12 +40,12 @@ public class CCC extends HttpServlet {
     
     productos = new ArrayList<Producto>();
     ArrayList<String> salida_amazon = new ArrayList<String>();
-    IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
+    IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),120);
     AmazonXPath amazon;
 
-   // String salida_amazon = amazon.queryAmazon("cpu");
+    //String salida_amazon = amazon.queryAmazon("cpu");
     //response.getWriter().print(salida_amazon);
-
+/*
     for(int i=0; i<productos.size(); i++) {
 	    amazon = new AmazonXPath(productos.get(i).getNombre());
 	    try {
@@ -62,7 +62,7 @@ public class CCC extends HttpServlet {
 		}
 	    productos.get(i).addOferta(salida_amazon, "Amazon");
     }
-
+*/
     
     /*AmazonAPI amazon = new AmazonAPI();
     String salida_amazon = amazon.queryAmazon(request.getParameter("busqueda"));
@@ -71,7 +71,7 @@ public class CCC extends HttpServlet {
     
 
     // BUSQUEDA EN COMPUTER UNIVERSE
-    response.getWriter().print(scrapCU.query(request.getParameter("busqueda")));
+    response.getWriter().print(scrapCU.query(request.getParameter("query")));
     
   }
   
