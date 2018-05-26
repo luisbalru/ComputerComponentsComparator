@@ -37,11 +37,9 @@ public class CCC extends HttpServlet {
     ArrayList<String> salida_amazon = new ArrayList<String>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
     AmazonXPath amazon;
-    
-<<<<<<< HEAD
+
    // String salida_amazon = amazon.queryAmazon("cpu");
     //response.getWriter().print(salida_amazon);
-=======
 
     for(int i=0; i<productos.size(); i++) {
 	    amazon = new AmazonXPath(productos.get(i).getNombre());
@@ -60,7 +58,6 @@ public class CCC extends HttpServlet {
 	    productos.get(i).addOferta(salida_amazon, "Amazon");
     }
 
->>>>>>> branch 'master' of https://github.com/luisbalru/ComputerComponentsComparator
     
     /*AmazonAPI amazon = new AmazonAPI();
     String salida_amazon = amazon.queryAmazon(request.getParameter("busqueda"));
@@ -68,7 +65,7 @@ public class CCC extends HttpServlet {
     
     
 
-    // BUSQUEDA EN WORTEN
+    // BUSQUEDA EN COMPUTER UNIVERSE
     response.getWriter().print(scrapCU.query(request.getParameter("busqueda")));
     
   }
