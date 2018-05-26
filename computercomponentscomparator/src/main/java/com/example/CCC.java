@@ -41,7 +41,10 @@ public class CCC extends HttpServlet {
     productos = new ArrayList<Producto>();
     ArrayList<String> salida_amazon = new ArrayList<String>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),120);
+    intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
+    
     AmazonXPath amazon;
+    
 
     //String salida_amazon = amazon.queryAmazon("cpu");
     //response.getWriter().print(salida_amazon);
