@@ -1,6 +1,7 @@
 package com.example;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
@@ -17,11 +18,15 @@ import org.xml.sax.SAXException;
     name = "ComputerComponetsComparator",
     urlPatterns = {"/ccc"}
 )
+
+
+
 public class CCC extends HttpServlet {
 	
 	public FuenteDato scrapPCC = new ScrappingPCC();
 	public FuenteDato scrapCU = new ScrappingCU();
 	public AmazonAPI amazon = new AmazonAPI();
+	private ArrayList<Producto> productos = new ArrayList<Producto>();
 	
 	
   @Override
@@ -33,7 +38,7 @@ public class CCC extends HttpServlet {
 
     
     
-    ArrayList<Producto> productos = new ArrayList<Producto>();
+    productos = new ArrayList<Producto>();
     ArrayList<String> salida_amazon = new ArrayList<String>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
     AmazonXPath amazon;
@@ -68,5 +73,18 @@ public class CCC extends HttpServlet {
     // BUSQUEDA EN COMPUTER UNIVERSE
     response.getWriter().print(scrapCU.query(request.getParameter("busqueda")));
     
+  }
+  
+  public ArrayList<Producto> getProductoNombre(String nombre)
+  {
+	  ArrayList<Producto> productos_matching = new ArrayList<Producto>();
+	  
+	  for(int i = 0; i < productos.size(); ++i)
+	  {
+		  if(productos.get(i).nameMatching(nombre))
+			  productos_matching.add(productos.get(i));
+	  }
+	  
+	  return productos_matching;
   }
 }

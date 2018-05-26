@@ -113,4 +113,17 @@ public class Producto{
 	  return precio.substring(4);
   }
   
+  public boolean nameMatching(String name)
+  {
+	  String[] parts = name.split(" ");
+	  int num_palabras = parts.length;
+	  int matchs=0;
+	  for(int i=0; i<num_palabras; ++i)
+	  {
+		  if(this.nombre.contains(parts[i]));
+		  	matchs++;
+	  }
+	  return (matchs >= num_palabras/2);
+  }
+  
 }
