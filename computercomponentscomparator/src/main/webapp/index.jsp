@@ -32,11 +32,11 @@
 	<!------------------- Cuerpo central de la página ---------------->
 	<section class="row">
 		<section class="col-10 offset-1">
-		    <form action="ccc" method="get"> 
+		    <form action="index.jsp" method="get"> 
 		   		<section class="col-1 logo">
 					<img src="img/lupa.png" alt="Searcher" />
 				</section>
-		    	<input style="margin-top:10px" type="text" id="busqueda" name="busqueda"/>
+		    	<input style="margin-top:10px" type="text" id="query" name="query"/>
 		   	</form>
 	   	</section>
 	   	
@@ -54,15 +54,24 @@
 	   	<section class="col-8 offset-1" style="width:72%;">   <!--  Hueco para artículos  --> 
 	   		<section class="row">
 	   		
-	   			<article class="col-3 articulo"> <!-- ARTICULO -->
-	   				<section class="col-11">
-	   					<img src="img/lupa.png" alt="foto-articulo" />
-	   				</section>
-	   				<h4 class="col-10">Nombre Producto<h4>
-	   				<h5 class="offset-2 col-3">45&#8364;</h5>
-	   				<h5 class="col-3">45&#8364;</h5>
-	   				<h5 class="col-3">45&#8364;</h5>
-	   			</article>
+	   		<%
+	   			if(request.getParameter("query") == null){
+	   					
+	   			}else{
+	   				//Producto[] productos = CONSEGUIR_PRODUCTOS_CON_NOMBRE( request.getParameter("query") );
+	   				for(int i = 0; i < 3 /*productos.size()*/; i++){%>
+		   				<article class="col-3 articulo"> <!-- ARTICULO -->       
+		   					<section class="col-11">                             
+	   							<img src="img/lupa.png" <% //producto[i].getImg() %> alt="foto-articulo" />
+	   						</section>
+	   						<h4 class="col-10">Nombre Producto <% //producto[i].getNombre() %><h4>
+						   	<h5 class="offset-2 col-3">45 <% //producto[i].getOfertas()[0] %> &#8364;</h5> 
+						   	<h5 class="col-3">45 <% //producto[i].getOfertas()[1] %> &#8364;</h5>             
+						   	<h5 class="col-3">45 <% //producto[i].getOfertas()[0] %> &#8364;</h5>                     
+						</article> <% 
+	   				}
+	   			}
+	   		%>	   		
 	   		</section>
 	   	</section>
    	</section>
