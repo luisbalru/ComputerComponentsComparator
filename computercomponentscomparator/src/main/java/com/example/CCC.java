@@ -21,7 +21,7 @@ import org.jsoup.select.Elements;
 public class CCC extends HttpServlet {
 	
 	public FuenteDato scrapPCC = new ScrappingPCC();
-	public FuenteDato scrapWorten = new ScrappingWorten();
+	public FuenteDato scrapCU = new ScrappingCU();
 	public AmazonAPI amazon = new AmazonAPI();
 	
   @Override
@@ -38,11 +38,11 @@ public class CCC extends HttpServlet {
     ArrayList<Producto> productos = new ArrayList<Producto>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("busqueda")),120);
     
-    String salida_amazon = amazon.queryAmazon("cpu");
-    response.getWriter().print(salida_amazon);
+   // String salida_amazon = amazon.queryAmazon("cpu");
+    //response.getWriter().print(salida_amazon);
     
     // BUSQUEDA EN WORTEN
-    response.getWriter().print(scrapWorten.query(request.getParameter("busqueda")));
+    response.getWriter().print(scrapCU.query(request.getParameter("busqueda")));
     
   }
 }

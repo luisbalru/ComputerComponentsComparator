@@ -11,18 +11,18 @@ import java.net.URL;
 
 
 
-public class ScrappingWorten implements FuenteDato{
+public class ScrappingCU implements FuenteDato{
 
-	private String firstquery  = "https://www.worten.es/productos/informatica?qs=";
+	private String firstquery  = "https://www.computeruniverse.net/en/list.asp?searchname=";
 	
 	public String getPage(String request) {
 		
 		//////////////////////////////////////// Search has better results with just the 3 first words ////////
 		String words[] = request.split(" ");
 		if(words.length > 1) {
-			words[0] += words[1];
+			words[0] += "+" + words[1];
 			if(words.length > 2) {
-				words[0] += words[2];
+				words[0] += "+" + words[2];
 			}
 		}
 		///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,6 @@ public class ScrappingWorten implements FuenteDato{
 		try {
 			while((line = buffer.readLine()) != null) {
 				read += line;
-				System.out.println(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
