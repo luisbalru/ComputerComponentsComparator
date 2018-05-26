@@ -26,7 +26,6 @@ public class IntegracionDatos {
    *  de las distintas fuentes de datos.
    * 
    * @param html_pcc String resultado del scrapping en PCComponentes
-   * @param html_gs String resultado del scrapping en Google Shopping
    * @param num_prod Entero que indica el número de productos a buscar (cuando sea necesario)
    */
   public IntegracionDatos(ArrayList<Producto> productos, String html_pcc, int num_prod) {
@@ -160,6 +159,56 @@ public class IntegracionDatos {
 			aux.setOfertas(ofertas);
 			prods.add(aux);
 		} 
+  }
+  
+  private String ajustarPrecioCU(String e) {
+	  return e.substring(12);
+  }
+  
+  public void procesarDatosCU(ArrayList<Producto> productos, String html_cu) {
+	Document doc_cu = Jsoup.parse(html_cu);
+	Elements names_cu = doc_cu.select("h2 > a");
+	Elements links_cu = doc_cu.select("h2 > a");
+	Elements prices_cu = doc_cu.select("font.priceItalicBig");
+	ArrayList<String> nombres_cu = new ArrayList<String>();
+	ArrayList<String> enlaces_cu = new ArrayList<String>();
+	ArrayList<String> precios_cu = new ArrayList<String>();
+	
+	for(Element e : names_cu)
+	{
+      String aux = e.attr("title");
+      nombres_cu.add(aux);
+	}
+	
+	for(Element l : links_cu)
+	{
+		String aux = "https://www.computeruniverse.net/"; 
+		aux = aux+l.attr("href");
+		enlaces_cu.add(aux);
+	}
+	
+	for(Element p : prices_cu)
+	{
+		String aux = p.text();
+		precios_cu.add(aux);
+	}
+	
+	boolean matching;
+	
+	for(int i = 0; i < productos.size(); ++i) {
+		matching = false;
+		for(int j = 0; j < nombres_cu.size(); ++j) {
+			matching = productos.get(i).nameMatching(nombres_cu.get(j));
+			if(matching) {
+				ArrayList<String> datos = new ArrayList<String>();
+				datos.add("Id desconocido");
+				datos.add(enlaces_cu.get(j));
+				datos.add(ajustarPrecioCU(precios_cu.get(j)));
+				productos.get(i).addOferta(datos, "Computer Universe");
+			}
+		}
+	}
+	
   }
   
 }
