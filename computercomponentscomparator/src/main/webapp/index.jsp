@@ -58,7 +58,7 @@
 	   			if(request.getParameter("query") == null){
 	   					
 	   			}else{
-	   				//Producto[] productos = CONSEGUIR_PRODUCTOS_CON_NOMBRE( request.getParameter("query") );
+	   				//ArrayList<Producto> productos = ( request.getParameter("query") );
 	   				for(int i = 0; i < 3 /*productos.size()*/; i++){%>
 		   				<article class="col-3 articulo"> <!-- ARTICULO -->       
 		   					<section class="col-11">                             
