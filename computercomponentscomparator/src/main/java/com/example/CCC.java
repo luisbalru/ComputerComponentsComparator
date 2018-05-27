@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -76,6 +78,14 @@ public class CCC extends HttpServlet {
     // BUSQUEDA EN COMPUTER UNIVERSE
     response.getWriter().print(scrapCU.query(request.getParameter("query")));
     
+    
+    request.setAttribute("MatchedProducts", getProductoNombre(request.getParameter("query")));
+    RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+    try {
+		dispatcher.forward(request, response);
+	} catch (ServletException e) {
+		e.printStackTrace();
+	}
   }
   
   public ArrayList<Producto> getProductoNombre(String nombre)
