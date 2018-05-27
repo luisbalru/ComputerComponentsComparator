@@ -118,8 +118,8 @@ public class IntegracionDatos {
 		
 		for(Element i : imgs)
 		{
-			String aux = i.attr("src");
-			aux=aux.substring(2);
+			String aux = i.attr("src"); 
+			aux=aux.substring(2); 
 			imagenes.add(aux);
 		}
 		

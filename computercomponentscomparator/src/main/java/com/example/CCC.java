@@ -39,22 +39,20 @@ public class CCC extends HttpServlet {
     response.setCharacterEncoding("UTF-8");
 
     
-    
-    productos = new ArrayList<Producto>();
     ArrayList<String> salida_amazon = new ArrayList<String>();
-    IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),120);
-    intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
+    IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),100);
+ //   intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
     
-    AmazonXPath amazon;
+    AmazonXPath amazonXPath;
     
 
-    //String salida_amazon = amazon.queryAmazon("cpu");
-    //response.getWriter().print(salida_amazon);
-/*
+   // String salida_amazon = amazon.query("cpu");
+   // response.getWriter().print(salida_amazon);
+
     for(int i=0; i<productos.size(); i++) {
-	    amazon = new AmazonXPath(productos.get(i).getNombre());
+	    amazonXPath = new AmazonXPath(productos.get(i).getNombre());
 	    try {
-			salida_amazon = amazon.getInformacion();
+			salida_amazon = amazonXPath.getInformacion();
 		} catch (XPathExpressionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,16 +65,16 @@ public class CCC extends HttpServlet {
 		}
 	    productos.get(i).addOferta(salida_amazon, "Amazon");
     }
-*/
+
     
-    /*AmazonAPI amazon = new AmazonAPI();
-    String salida_amazon = amazon.queryAmazon(request.getParameter("busqueda"));
-    response.getWriter().print(salida_amazon);*/
+   /* AmazonAPI amazon = new AmazonAPI();
+    String salida_amazon = amazon.query(request.getParameter("query"));
+    response.getWriter().print(salida_amazon); */
     
     
 
     // BUSQUEDA EN COMPUTER UNIVERSE
-    response.getWriter().print(scrapCU.query(request.getParameter("query")));
+  /*  response.getWriter().print(scrapCU.query(request.getParameter("query")));*/
     
     
     request.setAttribute("MatchedProducts", getProductoNombre(request.getParameter("query")));

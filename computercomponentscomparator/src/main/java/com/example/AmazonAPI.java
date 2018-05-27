@@ -67,7 +67,7 @@ public class AmazonAPI implements FuenteDato{
 		try {
 			while((line = buffer.readLine()) != null) {
 				read += line;
-				System.out.println(line);
+				//System.out.println(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -103,8 +103,6 @@ public class AmazonAPI implements FuenteDato{
         params.put("ResponseGroup", "Images,ItemAttributes,Offers");
 
         requestUrl = helper.sign(params);
-
-        
         
         
         return SendHTTP(requestUrl);

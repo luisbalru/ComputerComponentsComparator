@@ -64,13 +64,13 @@
 	   				ArrayList<Producto> productos = (ArrayList<Producto>)request.getAttribute("MatchedProducts");
 	   				for(int i = 0; i < productos.size(); i++){%>
 		   				<article class="col-3 articulo"> <!-- ARTICULO -->       
-		   					<section class="col-11">                             
-	   							<img src=<% productos.get(i).getImg(); %> alt="foto-articulo" />
+		   					<section class="offset-1 col-10">                             
+	   							<img src=<% out.print("http://"+productos.get(i).getImg()); %> alt="foto-articulo" />
 	   						</section>
-	   						<h4 class="col-10"><% productos.get(i).getNombre(); %></h4>
-						   	<h5 class="offset-2 col-3"> <% productos.get(i).getOfertas().get(0); %> &#8364;</h5> 
-						   	<h5 class="col-3"> <% productos.get(i).getOfertas().get(1); %> &#8364;</h5>             
-						   	<h5 class="col-3"> <% productos.get(i).getOfertas().get(2); %> &#8364;</h5>                     
+	   						<h5 class="offset-1 col-10"><% out.print(productos.get(i).getNombre()); %></h5>
+						   	<h5 class="offset-2 col-6">PCC:  <% out.print(productos.get(i).getOfertas().get(0).getPrecio()); %></h5> 
+						   	<h5 class="offset-2 col-6">Amazon: <% out.print(productos.get(i).getOfertas().get(1).getPrecio()); %> &#8364;</h5>             
+						   	<h5 class="offset-2 col-6">ComputerUniverse: <% //productos.get(i).getOfertas().get(2); %> &#8364;</h5>                     
 						</article> <% 
 	   				}
 	   			}
