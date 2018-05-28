@@ -74,7 +74,7 @@
 
 
 
-						   		<a class="offset-1 col-1" target="_blank" href=<% out.print("http://"+p.getOfertas().get(j).getEnlace()); %>>Ver</a>
+						   		<a class="offset-1 col-1" target="_blank" href=<% out.print(p.getOfertas().get(j).getEnlace()); %>>Ver</a>
               					<% } %>
 
 						</article> <% 

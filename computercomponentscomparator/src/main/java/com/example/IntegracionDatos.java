@@ -175,7 +175,7 @@ public class IntegracionDatos {
 	{
       String aux = e.attr("title");	System.out.println(aux);
       nombres_cu.add(aux);
-	}System.out.println(nombres_cu.size());
+	}
 
 	for(Element l : links_cu)
 	{
@@ -187,9 +187,6 @@ public class IntegracionDatos {
 	for(Element p : prices_cu)
 	{
 		String aux = p.text();
-		if(aux == "") {System.out.println(aux);
-			aux = "0,0";
-		}
 		precios_cu.add(aux.substring(2));
 	}
 	
