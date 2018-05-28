@@ -68,19 +68,12 @@
 	   							<img src=<% out.print("http://"+p.getImg()); %> alt="foto-articulo" />
 	   						</section>
 	   						<h5 class="offset-1 col-10"><% out.print(p.getNombre()); %></h5>
-<<<<<<< HEAD
-	   						<% for(int j=0; j<p.getOfertas().size(); j++){ %>
-						   	<h5 class="offset-2 col-6"><% out.print(p.getOfertas().get(j).getMarket()); %>  <% out.print(p.getOfertas().get(j).getPrecio()); %></h5> 
-              					<% } %>
-=======
 
-						   	<h5 class="offset-2 col-6">PCC:  <% out.print(p.getOfertas().get(0).getPrecio()); %></h5> 
-						   	<a class="offset-1 col-1" target="_blank" href=<% out.print("http://" + p.getOfertas().get(0).getEnlace()); %>>Ver</a>
-						   	<h5 class="offset-2 col-6">Amazon: <% //out.print(productos.get(i).getOfertas().get(1).getPrecio()); %> &#8364;</h5>             
-						   	<a class="offset-1 col-1" href=<% //out.print("http://" + p.getOfertas().get(2).getEnlace()); %>>Ver</a>
-						   	<h5 class="offset-2 col-6">ComputerUniverse: <%  out.print(p.getOfertas().get(1).getPrecio()); %> &#8364;</h5>                   
-							<a class="offset-1 col-1" href=<% out.print("http://" + p.getOfertas().get(1).getEnlace()); %>>Ver</a>
->>>>>>> branch 'master' of https://github.com/luisbalru/ComputerComponentsComparator.git
+	   						<% for(int j=0; j<p.getOfertas().size(); j++){ %>
+						   	<h5 class="offset-2 col-6"><% out.print(p.getOfertas().get(j).getMarket()); %>  <% out.print(p.getOfertas().get(j).getPrecio()); %></h5>
+						   	<a class="offset-1 col-1" target="_blank" href=<% out.print("http://" + p.getOfertas().get(j).getEnlace()); %>>Ver</a> 
+              					<% } %>
+
 						</article> <% 
 	   				}
 	   			}
