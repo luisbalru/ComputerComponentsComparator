@@ -43,47 +43,25 @@ public class AmazonXPath {
 
         // process
         NodeList urls = doc.getElementsByTagName("DetailPageURL");
-        NodeList prices = doc.getElementsByTagName("Prices");
-        NodeList rebajas = doc.getElementsByTagName("LowestNewPrice");        
+        NodeList prices = doc.getElementsByTagName("FormattedPrice");
+   
         
         
         
         Node url = urls.item(0);
         Element e_url = (Element) url;
         	
-        
-        Node rprice = rebajas.item(0);
+
         Node price = prices.item(0);
         
-        if(rprice == null)
-        	if(price == null)
-        		return salida;
-        	else {
-        		Node hijo_price = price.getLastChild();
-        		Element e_price = (Element) price;
-                if(hijo_price!=null && e_url!=null) {
-                	salida.add("Id desconocido");
-                	salida.add(e_url.getTextContent());
-                		salida.add(hijo_price.getTextContent()+"€");
-                }
-                return salida;
-        	}
-        
-        
-        
-        Node hijo_rprice = rprice.getLastChild();
-        Node hijo_price = price.getLastChild();
-        
-        
-        
+
+ 
         Element e_price = (Element) price;
-        if(hijo_price!=null && e_url!=null) {
+        if(e_price!=null && e_url!=null) {
         	salida.add("Id desconocido");
         	salida.add(e_url.getTextContent());
-        	if(hijo_rprice != null)
-        		salida.add(hijo_rprice.getTextContent()+"€");
-        	else
-        		salida.add(hijo_price.getTextContent()+"€");
+        	salida.add(e_price.getTextContent()+"€");
+
         }
         return salida;
 	}
