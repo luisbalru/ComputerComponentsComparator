@@ -135,7 +135,7 @@ public class Producto{
 	  String[] parts = name.split(" ");
 	  int num_palabras = parts.length;
 
-	  return numberMatching(name) > num_palabras/2;
+	  return numberMatching(name) > num_palabras/3;
   }
   
 }
