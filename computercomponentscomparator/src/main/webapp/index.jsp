@@ -71,7 +71,10 @@
 
 	   						<% for(int j=0; j<p.getOfertas().size(); j++){ %>
 						   	<h5 class="offset-2 col-6"><% out.print(p.getOfertas().get(j).getMarket()); %>  <% out.print(p.getOfertas().get(j).getPrecio()); %></h5>
-						   	<a class="offset-1 col-1" target="_blank" href=<% out.print("http://" + p.getOfertas().get(j).getEnlace()); %>>Ver</a> 
+
+
+
+						   		<a class="offset-1 col-1" target="_blank" href=<% out.print("http://"+p.getOfertas().get(j).getEnlace()); %>>Ver</a>
               					<% } %>
 
 						</article> <% 
