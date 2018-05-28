@@ -210,13 +210,7 @@ public class IntegracionDatos {
 			ArrayList<String> datos = new ArrayList<String>();
 			datos.add("Id desconocido");
 			datos.add(enlaces_cu.get(max_index));
-			datos.add(precios_cu.get(max_index));
-			productos.get(i).addOferta(datos, "Computer Universe"); 
-		}else {
-			ArrayList<String> datos = new ArrayList<String>();
-			datos.add("Id desconocido");
-			datos.add("");
-			datos.add("0.0");
+			datos.add(precios_cu.get(max_index)+"€");
 			productos.get(i).addOferta(datos, "Computer Universe"); 
 		}
 	}

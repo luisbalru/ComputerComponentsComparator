@@ -35,16 +35,18 @@ public class AmazonXPath {
         NodeList urls = doc.getElementsByTagName("DetailPageURL");
         NodeList prices = doc.getElementsByTagName("FormattedPrice");
         
+        
         Node url = urls.item(0);
         Element e_url = (Element) url;
-        if(e_url!=null)
-        	salida.add(e_url.getTextContent());
+        	
         
         Node price = prices.item(0);
         Element e_price = (Element) price;
-        if(e_price!=null)
-        	salida.add(e_price.getTextContent());
-        
+        if(e_price!=null && e_url!=null) {
+        	salida.add("Id desconocido");
+        	salida.add(e_url.getTextContent());
+        	salida.add(e_price.getTextContent()+"€");
+        }
         return salida;
 	}
 

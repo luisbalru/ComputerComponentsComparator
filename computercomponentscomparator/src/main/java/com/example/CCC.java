@@ -39,20 +39,19 @@ public class CCC extends HttpServlet {
     response.setCharacterEncoding("UTF-8");
 
     
-    ArrayList<String> salida_amazon = new ArrayList<String>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),100);
-   // intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
+    intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
     
     AmazonXPath amazonXPath;
     
 
-   // String salida_amazon = amazon.query("cpu");
+    ArrayList<String> datos_amazon = new ArrayList<String>();
    // response.getWriter().print(salida_amazon);
 
-    /*for(int i=0; i<productos.size(); i++) {
+    for(int i=0; i<productos.size(); i++) {
 	    amazonXPath = new AmazonXPath(productos.get(i).getNombre());
 	    try {
-			salida_amazon = amazonXPath.getInformacion();
+			datos_amazon = amazonXPath.getInformacion();
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -60,13 +59,9 @@ public class CCC extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    productos.get(i).addOferta(salida_amazon, "Amazon");
-    }*/
-
-    
-   /* AmazonAPI amazon = new AmazonAPI();
-    String salida_amazon = amazon.query(request.getParameter("query"));
-    response.getWriter().print(salida_amazon); */
+	    if(!datos_amazon.isEmpty())
+	    	productos.get(i).addOferta(datos_amazon, "Amazon");
+    }
     
     
 
