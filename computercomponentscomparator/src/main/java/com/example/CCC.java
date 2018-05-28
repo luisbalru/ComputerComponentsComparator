@@ -43,11 +43,13 @@ public class CCC extends HttpServlet {
     intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
     
     AmazonXPath amazonXPath;
+
+    /// PARA VER SALIDAS DE AMAZON
+    /*String salida_amazon = amazon.query("intel core i7");
+    response.getWriter().print(salida_amazon);*/
     
-
+    
     ArrayList<String> datos_amazon = new ArrayList<String>();
-   // response.getWriter().print(salida_amazon);
-
     for(int i=0; i<productos.size(); i++) {
 	    amazonXPath = new AmazonXPath(productos.get(i).getNombre());
 	    try {
@@ -63,10 +65,6 @@ public class CCC extends HttpServlet {
 	    	productos.get(i).addOferta(datos_amazon, "Amazon");
     }
     
-    
-
-    // BUSQUEDA EN COMPUTER UNIVERSE
-  /*  response.getWriter().print(scrapCU.query(request.getParameter("query")));*/
     
     
     request.setAttribute("MatchedProducts", productos);

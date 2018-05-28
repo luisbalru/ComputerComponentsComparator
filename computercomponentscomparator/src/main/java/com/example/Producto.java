@@ -120,12 +120,14 @@ public class Producto{
   
   public int numberMatching(String name)
   {
-	  String[] parts = name.split(" ");
+	  String lowname = name.toLowerCase();
+	  String[] parts = lowname.split(" ");
 	  int num_palabras = parts.length;
 	  int matchs=0;
+	  String lownombre = nombre.toLowerCase();
 	  for(int i=0; i<num_palabras; ++i)
 	  {
-		  if(this.nombre.contains(parts[i]))
+		  if(lownombre.contains(parts[i]))
 		  	matchs++;
 	  }
 	  return matchs;
