@@ -207,7 +207,7 @@ public class IntegracionDatos {
 			datos.add("Id desconocido");
 			datos.add(enlaces_cu.get(max_index));
 			datos.add(precios_cu.get(max_index)+"€");
-			productos.get(i).addOferta(datos, "Computer Universe"); 
+			productos.get(i).addOferta(datos, "Computer  Universe"); 
 		}
 	}
 	
