@@ -100,11 +100,16 @@ public class Producto{
   }
 
   public void addOferta(ArrayList<String> datos, String market) {
+	 
 	  Oferta oferta = new Oferta();
 	  oferta.setMarket(market);
 	  oferta.setId(datos.get(0));
 	  oferta.setEnlace(datos.get(1));
-	  oferta.setPrecio(ajustarPrecioAmazon(datos.get(2)));
+	  if(market == "Amazon") {
+		  oferta.setPrecio(ajustarPrecioAmazon(datos.get(2)));
+	  } else {
+		  oferta.setPrecio(datos.get(2));
+	  }
 	  ofertas.add(oferta);
   }
   
@@ -113,17 +118,24 @@ public class Producto{
 	  return precio.substring(4);
   }
   
-  public boolean nameMatching(String name)
+  public int numberMatching(String name)
   {
 	  String[] parts = name.split(" ");
 	  int num_palabras = parts.length;
 	  int matchs=0;
 	  for(int i=0; i<num_palabras; ++i)
 	  {
-		  if(this.nombre.contains(parts[i]));
+		  if(this.nombre.contains(parts[i]))
 		  	matchs++;
 	  }
-	  return (matchs >= num_palabras/2);
+	  return matchs;
+  }
+  public boolean nameMatching(String name)
+  {
+	  String[] parts = name.split(" ");
+	  int num_palabras = parts.length;
+
+	  return numberMatching(name) > num_palabras/2;
   }
   
 }

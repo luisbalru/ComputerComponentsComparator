@@ -46,7 +46,7 @@ public class ScrappingCU implements FuenteDato{
 		}
 		return read;
 	}
-	private String SendHTTP( String url) {
+	private String SendHTTP( String url) {  System.out.println(url);
 		
 		HttpURLConnection connection;
 		BufferedReader response;

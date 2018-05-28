@@ -34,14 +34,14 @@ public class CCC extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
-      
+    productos = new ArrayList<Producto>(); 
     response.setContentType("text/plain");
     response.setCharacterEncoding("UTF-8");
 
     
     ArrayList<String> salida_amazon = new ArrayList<String>();
     IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),100);
- //   intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
+    intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
     
     AmazonXPath amazonXPath;
     
@@ -49,7 +49,7 @@ public class CCC extends HttpServlet {
    // String salida_amazon = amazon.query("cpu");
    // response.getWriter().print(salida_amazon);
 
-    for(int i=0; i<productos.size(); i++) {
+    /*for(int i=0; i<productos.size(); i++) {
 	    amazonXPath = new AmazonXPath(productos.get(i).getNombre());
 	    try {
 			salida_amazon = amazonXPath.getInformacion();
@@ -64,7 +64,7 @@ public class CCC extends HttpServlet {
 			e.printStackTrace();
 		}
 	    productos.get(i).addOferta(salida_amazon, "Amazon");
-    }
+    }*/
 
     
    /* AmazonAPI amazon = new AmazonAPI();
@@ -77,7 +77,7 @@ public class CCC extends HttpServlet {
   /*  response.getWriter().print(scrapCU.query(request.getParameter("query")));*/
     
     
-    request.setAttribute("MatchedProducts", getProductoNombre(request.getParameter("query")));
+    request.setAttribute("MatchedProducts", productos);
     RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
     try {
 		dispatcher.forward(request, response);

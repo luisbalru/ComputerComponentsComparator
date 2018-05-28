@@ -104,7 +104,7 @@ public class AmazonAPI implements FuenteDato{
 
         requestUrl = helper.sign(params);
         
-        
+        System.out.println(requestUrl);
         return SendHTTP(requestUrl);
     }
     

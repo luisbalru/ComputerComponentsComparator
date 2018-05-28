@@ -161,9 +161,6 @@ public class IntegracionDatos {
 		} 
   }
   
-  private String ajustarPrecioCU(String e) {
-	  return e.substring(12);
-  }
   
   public void procesarDatosCU(ArrayList<Producto> productos, String html_cu) {
 	Document doc_cu = Jsoup.parse(html_cu);
@@ -190,22 +187,36 @@ public class IntegracionDatos {
 	for(Element p : prices_cu)
 	{
 		String aux = p.text();
-		precios_cu.add(aux);
+		if(aux == "") {System.out.println(aux);
+			aux = "0,0";
+		}
+		precios_cu.add(aux.substring(2));
 	}
 	
-	boolean matching;
 	
 	for(int i = 0; i < productos.size(); ++i) {
-		matching = false;
+		int max = 0;
+		int current = 0;
+		int max_index = 0;
 		for(int j = 0; j < nombres_cu.size(); ++j) {
-			matching = productos.get(i).nameMatching(nombres_cu.get(j));
-			if(matching) {
-				ArrayList<String> datos = new ArrayList<String>();
-				datos.add("Id desconocido");
-				datos.add(enlaces_cu.get(j));
-				datos.add(ajustarPrecioCU(precios_cu.get(j)));
-				productos.get(i).addOferta(datos, "Computer Universe");
+			current = productos.get(i).numberMatching(nombres_cu.get(j));
+			if(current > max) {
+				max = current;
+				max_index = j;
 			}
+		}
+		if(productos.get(i).nameMatching(nombres_cu.get(max_index))) {
+			ArrayList<String> datos = new ArrayList<String>();
+			datos.add("Id desconocido");
+			datos.add(enlaces_cu.get(max_index));
+			datos.add(precios_cu.get(max_index));
+			productos.get(i).addOferta(datos, "Computer Universe"); 
+		}else {
+			ArrayList<String> datos = new ArrayList<String>();
+			datos.add("Id desconocido");
+			datos.add("");
+			datos.add("0.0");
+			productos.get(i).addOferta(datos, "Computer Universe"); 
 		}
 	}
 	
