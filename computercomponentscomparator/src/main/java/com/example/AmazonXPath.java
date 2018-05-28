@@ -1,22 +1,20 @@
 package com.example;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringBufferInputStream;
 import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
- 
+
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class AmazonXPath {
@@ -27,34 +25,23 @@ public class AmazonXPath {
 	    salida_amazon = amazon.query(query);
 	}
 	
-	public ArrayList<String> getInformacion() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException
+	public ArrayList<String> getInformacion() throws SAXException, IOException, ParserConfigurationException 
 	{
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true); // never forget this!
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        InputSource is = new InputSource(new StringReader(salida_amazon));
-		Document doc = builder.parse(is); System.out.println(doc.toString()); 
+		InputStream in = new ByteArrayInputStream(salida_amazon.getBytes("utf-8"));
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in);
         ArrayList<String> salida = new ArrayList<String>();
- 
-        XPathFactory xpathfactory = XPathFactory.newInstance();
-        XPath xpath = xpathfactory.newXPath();
-        
-        
-        XPathExpression expr = xpath.compile("/ItemSearchResponse/Items/Item/ASIN/text()");
-        Object result = expr.evaluate(doc, XPathConstants.NODESET); //System.out.println((String)result);
-        NodeList nodes = (NodeList) result; System.out.println("Tamanio nodeList: " + nodes.getLength() + "\n");
-        salida.add(nodes.item(0).getNodeValue());
 
+        // process
+        NodeList urls = doc.getElementsByTagName("DetailPageURL");
+        NodeList prices = doc.getElementsByTagName("FormattedPrice");
         
-        expr = xpath.compile("/Item/DetailPageURL/text()");
-        result = expr.evaluate(doc, XPathConstants.NODESET);
-        nodes = (NodeList) result;
-        salida.add(nodes.item(0).getNodeValue());
+        Node url = urls.item(0);
+        Element e_url = (Element) url;
+        salida.add(e_url.getTagName());
         
-        expr = xpath.compile("//Item/Offers/Offer/OfferListing/Price/FormattedPrice/text()");
-        result = expr.evaluate(doc, XPathConstants.NODESET);
-        nodes = (NodeList) result;
-        salida.add(nodes.item(0).getNodeValue());
+        Node price = prices.item(0);
+        Element e_price = (Element) price;
+        salida.add(e_price.getTagName());
         
         return salida;
 	}
