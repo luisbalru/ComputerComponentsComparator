@@ -63,7 +63,7 @@ public class AmazonXPath {
         
         
         Element e_price = (Element) price;
-        if(e_price!=null && e_url!=null) {
+        if(hijo_price!=null && e_url!=null) {
         	salida.add("Id desconocido");
         	salida.add(e_url.getTextContent());
         	if(hijo_rprice != null)
