@@ -49,7 +49,7 @@ public class CCC extends HttpServlet {
    // String salida_amazon = amazon.query("cpu");
    // response.getWriter().print(salida_amazon);
 
-    for(int i=0; i<productos.size(); i++) {
+    /*for(int i=0; i<productos.size(); i++) {
 	    amazonXPath = new AmazonXPath(productos.get(i).getNombre());
 	    try {
 			salida_amazon = amazonXPath.getInformacion();
@@ -61,7 +61,7 @@ public class CCC extends HttpServlet {
 			e.printStackTrace();
 		}
 	    productos.get(i).addOferta(salida_amazon, "Amazon");
-    }
+    }*/
 
     
    /* AmazonAPI amazon = new AmazonAPI();
