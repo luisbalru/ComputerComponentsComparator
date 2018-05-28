@@ -173,10 +173,11 @@ public class IntegracionDatos {
 	
 	for(Element e : names_cu)
 	{
-      String aux = e.attr("title");
+      String aux = e.attr("title");	System.out.println(aux);
       nombres_cu.add(aux);
 	}
-	
+	System.out.println(nombres_cu.size());
+
 	for(Element l : links_cu)
 	{
 		String aux = "https://www.computeruniverse.net/"; 
