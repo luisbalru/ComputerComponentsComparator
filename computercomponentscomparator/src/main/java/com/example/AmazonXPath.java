@@ -37,11 +37,13 @@ public class AmazonXPath {
         
         Node url = urls.item(0);
         Element e_url = (Element) url;
-        salida.add(e_url.getTagName());
+        if(e_url!=null)
+        	salida.add(e_url.getTextContent());
         
         Node price = prices.item(0);
         Element e_price = (Element) price;
-        salida.add(e_price.getTagName());
+        if(e_price!=null)
+        	salida.add(e_price.getTextContent());
         
         return salida;
 	}
