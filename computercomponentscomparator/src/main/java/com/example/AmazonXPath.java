@@ -22,7 +22,17 @@ public class AmazonXPath {
 	
 	public AmazonXPath(String query) {
 		AmazonAPI amazon = new AmazonAPI();
-	    salida_amazon = amazon.query(query);
+		String words[] = query.split(" ");
+		if(words.length > 1) {
+			words[0] += " " + words[1];
+			if(words.length > 2) {
+				words[0] += " " + words[2];
+			}
+			if(words.length > 3) {
+				words[0] += " " + words[3];
+			}
+		}
+	    salida_amazon = amazon.query(words[0]);
 	}
 	
 	public ArrayList<String> getInformacion() throws SAXException, IOException, ParserConfigurationException 
