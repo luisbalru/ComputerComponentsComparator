@@ -173,7 +173,7 @@ public class IntegracionDatos {
 	
 	for(Element e : names_cu)
 	{
-      String aux = e.attr("title");	System.out.println(aux);
+      String aux = e.attr("title");
       nombres_cu.add(aux);
 	}
 
@@ -194,7 +194,7 @@ public class IntegracionDatos {
 	for(int i = 0; i < productos.size(); ++i) {
 		int max = 0;
 		int current = 0;
-		int max_index = 0;
+		int max_index = -1;
 		for(int j = 0; j < nombres_cu.size(); ++j) {
 			current = productos.get(i).numberMatching(nombres_cu.get(j));
 			if(current > max) {
@@ -202,12 +202,14 @@ public class IntegracionDatos {
 				max_index = j;
 			}
 		}
-		if(productos.get(i).nameMatching(nombres_cu.get(max_index))) {
-			ArrayList<String> datos = new ArrayList<String>();
-			datos.add("Id desconocido");
-			datos.add(enlaces_cu.get(max_index));
-			datos.add(precios_cu.get(max_index)+"€");
-			productos.get(i).addOferta(datos, "Computer  Universe"); 
+		if(max_index!=-1) {
+			if(productos.get(i).nameMatching(nombres_cu.get(max_index))) {
+				ArrayList<String> datos = new ArrayList<String>();
+				datos.add("Id desconocido");
+				datos.add(enlaces_cu.get(max_index));
+				datos.add(precios_cu.get(max_index)+"€");
+				productos.get(i).addOferta(datos, "Computer  Universe"); 
+			}
 		}
 	}
 	

@@ -46,7 +46,7 @@ public class ScrappingPCC implements FuenteDato{
 		while((nuevo = SendHTTP("https://www.pccomponentes.com/buscar/ajax", "POST", true, i, request)) != "" ) {
 			res+=nuevo+"\n";
 			i++;
-			if(i>4)break;
+			if(i>2)break;
 		}
 
 		return res;

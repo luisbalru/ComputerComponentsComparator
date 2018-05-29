@@ -39,7 +39,7 @@ public class CCC extends HttpServlet {
     response.setCharacterEncoding("UTF-8");
 
     
-    IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),100);
+    IntegracionDatos intDatos = new IntegracionDatos(productos,scrapPCC.query(request.getParameter("query")),60);
     intDatos.procesarDatosCU(productos, scrapCU.query(request.getParameter("query")));
     
     AmazonXPath amazonXPath;
