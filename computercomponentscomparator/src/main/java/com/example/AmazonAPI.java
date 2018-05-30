@@ -22,13 +22,13 @@ public class AmazonAPI implements FuenteDato{
     /*
      * Your Access Key ID, as taken from the Your Account page.
      */
-    private static final String ACCESS_KEY_ID = "AKIAJ2M7Z62GFWKITXBA";
+    private static final String ACCESS_KEY_ID = "pon-tu-id";
 
     /*
      * Your Secret Key corresponding to the above ID, as taken from the
      * Your Account page.
      */
-    private static final String SECRET_KEY = "ASJo63DLv+0IaNwTp1j4ytzQvkUaM+AXNlbAOBVa";
+    private static final String SECRET_KEY = "pon tu clave secreta";
 
     /*
      * Use the end-point according to the region you are interested in.
