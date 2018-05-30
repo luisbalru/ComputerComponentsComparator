@@ -1,8 +1,0 @@
-computercomponentsc.isi@gmail.com
-ABD3oradba
-
-amazon id: computerco060-20
-
-buscar por código ean(estandar) asin (amazon) como llave externa
-Hacer una clase ofertas donde se almacene el precio, la url y la compañía q da la oferta.
-Cada producto tendrá un arraylist de ofertas
